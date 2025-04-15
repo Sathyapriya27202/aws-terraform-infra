@@ -135,7 +135,7 @@ resource "aws_instance" "my_instance" {
   subnet_id              = aws_subnet.public-sub.id
   security_groups        = [aws_security_group.allow_tls.id]
   associate_public_ip_address = true
-  key_name               = "3tier-app"  # Replace with your SSH key name
+  key_name               = "vpcpracticals-29"  # Replace with your SSH key name
   tags = {
     Name = "my-ec2-instance" 
  }
@@ -147,7 +147,7 @@ resource "aws_instance" "my_instance2" {
   subnet_id              = aws_subnet.private-sub.id
   security_groups        = [aws_security_group.allow_tls.id]
   associate_public_ip_address = true
-  key_name               = "3tier-app"  # Replace with your SSH key name
+  key_name               = "vpcpracticals-29"  # Replace with your SSH key name
   tags = {
     Name = "my-ec2-instance"
   }
