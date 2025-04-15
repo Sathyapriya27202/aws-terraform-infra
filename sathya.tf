@@ -39,21 +39,17 @@ output "iam_user_name" {
 }
 
 #Create EC2 Instances
-resource "aws_instance" "my_ec2_instance" {
-  ami           = "ami-0ed194d7eff6d2f81"  # Replace with a valid AMI ID for your region
-  instance_type = "t2.micro"  # Choose the instance type (e.g., t2.micro)
+resource "aws_instance" "my_ec2" {
+  ami                         = "ami-0d682f26195e9ec0f"
+  instance_type               = "t2.small"
+  subnet_id                   = aws_subnet.public-sub.id  # Reference subnet from vpc.tf
+  security_groups             = [aws_security_group.allow_tls.id]  # Reference SG from vpc.tf
+  associate_public_ip_address = true
+  key_name                    = "vpcpracticals-29"
 
   tags = {
-    Name = "MyEC2Instance"
+    Name = "my-ec2-instance"
   }
-}
-
-output "instance_id" {
-  value = aws_instance.my_ec2_instance.id
-}
-
-output "public_ip" {
-  value = aws_instance.my_ec2_instance.public_ip
 }
 
 
