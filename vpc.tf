@@ -140,15 +140,3 @@ resource "aws_instance" "my_instance" {
     Name = "my-ec2-instance" 
  }
 }
-
-resource "aws_instance" "my_instance2" {
-  ami                    = "ami-0d682f26195e9ec0f"  # Replace with a valid AMI for your region
-  instance_type          = "t2.micro"              # Choose your instance type
-  subnet_id              = aws_subnet.private-sub.id
-  security_groups        = [aws_security_group.allow_tls.id]
-  associate_public_ip_address = true
-  key_name               = "vpcpracticals-29"  # Replace with your SSH key name
-  tags = {
-    Name = "my-ec2-instance"
-  }
-}
